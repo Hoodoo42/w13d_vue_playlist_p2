@@ -1,6 +1,6 @@
 <template>
     <div>
-<h4 ref="playlist_container" @click="add_to_play">{{song[`title`]}}</h4>
+<h4 ref="playlist_container" v-for="song in song_info" :key="song[`song_id`]"></h4>
 
     </div>
 </template>
@@ -9,7 +9,7 @@
     export default {
         methods: {
             display_playlist(song_info) {
-                this.$refs[`playlist_container`][`innerText`] = song_info
+                this.$refs[`playlist_container`][`innerText`] = song_info[`title`]
             }
         },
         mounted () {
